@@ -1,0 +1,11 @@
+In wireshark, filter the packets using the filter (http.request.method == "POST")
+username=isitadmin & password=iamtheadmin
+
+Run the server.py 
+cd to the challenge_7 file , python3 -m venv venv , activate virtual evirnment , 
+source venv/bin/activate  , install flask , pip install flask , run server , python server.py
+
+copy and paste the link shown in terminal ,http://127.0.0.1:8080 , login in using the id and pass
+Welcome page loads and the flag is shown
+FLAG{analyzing_is_imp}
+
