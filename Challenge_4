@@ -1,1 +1,36 @@
+The Well That Has No Shadow
 
+An image was recovered from an offline archaeological dataset dated before 2005.
+The structure shown in the image does not cast a clear shadow, despite being outdoors.
+
+The image contains:
+Repeating stone stair geometry
+No inscriptions
+No visible water
+No people
+No sky
+
+You are told only this:
+
+“Built to defeat heat, not enemies.”
+
+Objectives
+
+Identify:
+
+1. name of the structure
+
+2. state which this exists
+
+Flag Format
+
+flag{structure_name|state_name}
+--------------------------------------------------------------------------------
+Hints : 
+Repeating stone stair geometry
+No visible water or sky
+Built to defeat heat, not enemies
+Ancient, pre-2005 archaeological image
+A well that appears to have no shadow
+
+flag{Chand_Baori|Rajasthan}
