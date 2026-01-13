@@ -1,0 +1,36 @@
+An anonymous investigator recovered a photograph from an old archive linked to a 
+series of ritualistic crimes.The image shows architecture made not of stone, but of human remains.
+
+No metadata.
+No timestamps.
+No coordinates.
+No filename clues
+
+Your task is to identify the exact location where this photograph was taken.
+
+one cropped interior image showing:
+
+Chandeliers made of bones
+
+Skulls arranged symmetrically
+
+Gothic vaulting
+
+
+the below is the quote found along with that image:
+
+"Let conversation cease. Let laughter flee.
+This is the place where death delights in helping the living."
+
+TASK:
+
+Find the exact name of the place and its city.
+
+Flag Format: flag{place_name_city}
+-------------------------------------------------------------------------------------
+Flag: flag{Sedlec_Ossuary_Kutna_Hora}
+
+Steps
+The quote and the Chandeliers made of bones are the key words to find the place and city.
+which place, city has a Chandeliers made of bones and the quote "Let conversation cease. Let 
+laughter flee. This is the place where death delights in helping the living."
