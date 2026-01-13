@@ -1,0 +1,6 @@
+Analyze the given image and extract the hidden information to find the flag.
+
+Hint: use command to view and analyze binary files in hexadecimal format
+
+Flag format: flag{your_answer}
+--------------------------------------------------------------------------------------
