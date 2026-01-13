@@ -4,3 +4,12 @@ Hint: use command to view and analyze binary files in hexadecimal format
 
 Flag format: flag{your_answer}
 --------------------------------------------------------------------------------------
+Checking the file type of the image
+First  cd into the path of the image and run command "file image.jpg"
+Confirms it is jpeg
+
+extract readable text by the command "strings image.jpg"
+flag found 
+flag{jai_mahismathi}
+
+
