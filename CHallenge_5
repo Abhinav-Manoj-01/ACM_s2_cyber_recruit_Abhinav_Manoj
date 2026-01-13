@@ -1,0 +1,23 @@
+“In the Dark: Blind SQL Injection”
+
+A login system has been deployed in a hurry.
+It gives almost no errors, no warnings, and no visible database output.
+
+Everything looks normal.
+Too normal.
+
+But behind the scenes, the database is listening.
+
+Your mission:
+Extract the admin password without ever seeing the database response directly.
+
+You will not be shown the data.
+You must infer it.
+
+Welcome to the dark side of SQL Injection.
+
+Hint: The system only answers one thing:
+Success or Failure
+
+Can you ask the right questions????
+-----------------------------------------------------------------------------------
