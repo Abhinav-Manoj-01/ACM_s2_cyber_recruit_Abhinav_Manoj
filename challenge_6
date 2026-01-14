@@ -1,0 +1,7 @@
+Run the app.py 
+cd to the challenge_6 file , python3 -m venv venv , activate virtual evirnment , 
+source venv/bin/activate  , install flask , pip install flask , run server , python app.py
+
+Answers the questions in the page and in last results page , final reveal is shown which is the flag.
+
+flag{Detection_Analysis_Containment_Eradication_Recovery_LessonsLearned}
