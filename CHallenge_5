@@ -22,7 +22,7 @@ Success or Failure
 Can you ask the right questions????
 -----------------------------------------------------------------------------------
 
-The login mechanism accepts a password  (pw) from the URL and embeds it directly into an SQL query.
+The login mechanism accepts a password  (pw) from the URL and puts it directly into an SQL query.
 The input is not safely handled, and SQL injection can be conducted. 
 
 checking if injection is possible , 
