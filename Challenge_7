@@ -1,4 +1,21 @@
-In wireshark, filter the packets using the filter (http.request.method == "POST")
+“From Packets to Access”
+
+A company suspects that someone logged into their internal portal without authorization.
+
+The only evidence available is a network capture file (.pcap).
+
+The login page is still active.
+The flag is inside.
+
+Your mission:
+Analyze the network traffic, uncover the stolen credentials, log into the system, and retrieve the hidden flag.
+
+The packets already know the secret. You just have to listen.
+
+Hint 1: Not all packets are noise. Some talk too much.
+
+-----------------------------------------------------------------------------------------------
+From receiv ed log,
 username=isitadmin & password=iamtheadmin
 
 Run the server.py 
