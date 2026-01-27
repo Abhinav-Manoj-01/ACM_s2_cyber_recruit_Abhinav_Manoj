@@ -1,1 +1,3 @@
-# ACM_s2_cyber_recruit_Abhinav_Manoj
+Abhinav Manoj 
+S2 CSE Cybersecurity
+AM.SC.U4CYS25001@AM.STUDENTS.AMRITA.EDU
